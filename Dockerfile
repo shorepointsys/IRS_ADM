@@ -5,7 +5,7 @@ FROM odoo:18.0
 WORKDIR /var/lib/odoo
 
 # Copy custom files (if any)
-COPY ./custom-addons /mnt/extra-addons
+#COPY ./custom-addons /mnt/extra-addons
 
 # Ensure dependencies are installed
 RUN apt-get update && apt-get install -y \
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Set environment variables
-ENV ODOO_EXTRA_ADDONS=/mnt/extra-addons
+#ENV ODOO_EXTRA_ADDONS=/mnt/extra-addons
 
 # Expose default Odoo port
 EXPOSE 8069
