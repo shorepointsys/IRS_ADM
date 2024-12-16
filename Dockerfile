@@ -6,7 +6,7 @@ WORKDIR /var/lib/odoo
 
 # Copy custom files (if any)
 #COPY ./custom-addons /mnt/extra-addons
-
+USER root
 # Ensure dependencies are installed
 RUN apt-get update && apt-get install -y \
     python3-dev \
@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libxslt1-dev \
     zlib1g-dev \
     && apt-get clean
-
+USER odoo
 # Set environment variables
 #ENV ODOO_EXTRA_ADDONS=/mnt/extra-addons
 
